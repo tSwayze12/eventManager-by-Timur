@@ -31,7 +31,7 @@ void EventManager::loadFromFile(const std::string& filename) {
         std::string description = line.substr(11); // текст после даты и пробела
 
         std::chrono::sys_days date = parseDate(dateStr);
-        events.push_back(Event(date, description));
+        events_.push_back(Event(date, description));
     }
 }
 
@@ -54,7 +54,7 @@ std::chrono::sys_days EventManager::parseDate(const std::string& dateStr) {
 
 std::vector<Event> EventManager::getUpcomingEvents(std::chrono::sys_days date, size_t count) {
     std::vector<Event> upcomingEvents;
-    for (const Event& e : events) {
+    for (const Event& e : events_) {
         if (e.getDate() >= date) {
             upcomingEvents.push_back(e);
         }

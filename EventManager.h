@@ -11,7 +11,7 @@ public:
     std::vector<Event> getUpcomingEvents(std::chrono::sys_days date, size_t count = 7);
 
 private:
-    std::vector<Event> events;
+    std::vector<Event> events_;
     void loadFromFile(const std::string& filename);
     std::chrono::sys_days parseDate(const std::string& dateStr);
 };
