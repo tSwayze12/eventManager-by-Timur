@@ -18,6 +18,7 @@ include_directories(include)
 add_library(event_lib
     src/Event.cpp
     src/EventManager.cpp
+        src/scripts.cpp
 )
 
 target_include_directories(event_lib PUBLIC include)
