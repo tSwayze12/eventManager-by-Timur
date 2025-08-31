@@ -5,6 +5,8 @@
 
 #include <filesystem>
 #include <fstream>
+#include <iostream>
+
 
 int main() {
     std::filesystem::path project_root = __FILE__;
@@ -19,9 +21,27 @@ int main() {
     browser.copy_file_from_data();
 
     clean_console_crossplatform();
-    menu_managing::get_menu();
-//    std::cout << "Executable stuff here\n";
-
-    browser.copy_from_build();
-    browser.remove_from_build();
+    auto event_manager = EventManager("events.txt");
+    auto today = std::chrono::floor<std::chrono::days>
+    (std::chrono::system_clock::now());
+    while (true) {
+        clean_console_crossplatform();
+        menu_managing::get_menu();
+        // ReSharper disable once CppDefaultCaseNotHandledInSwitchStatement
+        switch (menu_managing::get_integer()) {
+            default:
+                browser.copy_from_build();
+                browser.remove_from_build();
+                std::exit(0);
+            case 1:
+                auto events = event_manager.getUpcomingEvents(today);
+                for (const Event& event : events) {
+                    std::cout << event.getDate() << " " << event.getDescription() << std::endl;
+                }
+                char _;
+                std::cout << "Press enter if you want to move to the main menu: ";
+                std::cin.get();
+                break;
+        }
+    }
 }

@@ -8,5 +8,4 @@ namespace menu_managing{
 
     std::string get_string();
 
-    void get_cancel_option();
 };
