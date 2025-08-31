@@ -1,5 +1,6 @@
 #include "EventManager.h"
 #include "scripts.h"
+#include "console_menu.h"
 
 #include <iostream>
 #include <filesystem>
@@ -17,7 +18,7 @@ int main() {
 
     browser.copy_file_from_data();
 
-    std::cout << "Executable stuff here\n";
+//    std::cout << "Executable stuff here\n";
     browser.copy_from_build();
     browser.remove_from_build();
 }
