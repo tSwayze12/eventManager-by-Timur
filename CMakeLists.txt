@@ -19,6 +19,7 @@ add_library(event_lib
     src/Event.cpp
     src/EventManager.cpp
         src/scripts.cpp
+        src/console_menu.cpp
 )
 
 target_include_directories(event_lib PUBLIC include)

@@ -19,3 +19,11 @@ std::filesystem::path get_project_root() {
 void remove_from_build(const std::filesystem::path& project_root) {
     std::filesystem::remove(project_root / "build" / "events.txt");
 }
+
+void copy_from_build(const std::filesystem::path& project_root) {
+    std::filesystem::remove(project_root / "data" / "events.txt");
+    std::filesystem::copy_file(
+        project_root / "build" / "events.txt",
+        project_root / "data" / "events.txt"
+    );
+}
