@@ -19,7 +19,7 @@ add_library(event_lib
     src/Event.cpp
     src/EventManager.cpp
         src/scripts.cpp
-        src/menu_manager.cpp
+        src/menu_managing.cpp
         src/console_cleaner.cpp
 )
 

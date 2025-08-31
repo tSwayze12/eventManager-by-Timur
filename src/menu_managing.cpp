@@ -1,24 +1,27 @@
-#include "menu_manager.h"
+#include "menu_managing.h"
 
 #include <iostream>
 #include <ios>
 #include <limits>
 
-void Menu_manager::get_menu() {
-    std::cout << "============================"
+void menu_managing::get_menu() {
+    std::cout
+    << "============================"
     << std::endl
-    << "=====Choose your action====="
+    << "Choose your action"
     <<std::endl
-    << "==1 - Get upcoming events.=="
+    << "1 - Get upcoming events"
     << std::endl
-    << "======2 - Add an event======"
+    << "2 - Add an event"
     << std::endl
-    << "=q - Close the application.=" //Formally ascii 81 but I don't know q looks better
+    << "q - Close the application" //Formally ascii 81 but I don't know q looks better
     << std::endl
-    << "================Your choice:";
+    <<"============================"
+    << std::endl
+    << "Your choice:";
 }
 
-unsigned Menu_manager::get_integer() {
+unsigned menu_managing::get_integer() {
     unsigned vexing_int;
     std::cin >> vexing_int;
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -28,7 +31,7 @@ unsigned Menu_manager::get_integer() {
     return vexing_int;
 }
 
-std::string Menu_manager::get_string() {
+std::string menu_managing::get_string() {
     std::string vexing_line;
     std::getline(std::cin, vexing_line);
     std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
@@ -36,4 +39,13 @@ std::string Menu_manager::get_string() {
     return vexing_line;
 }
 
+void menu_managing::get_cancel_option() {
+    std::cout
+    << std::endl
+    << "0 - Cancel and return to the main menu";
+    unsigned choice = get_integer();
+    if (choice ==0 ) {
+    get_menu();
+    }
+}
 

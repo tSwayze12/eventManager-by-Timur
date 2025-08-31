@@ -1,8 +1,8 @@
 #include "EventManager.h"
 #include "scripts.h"
-#include "console_menu.h"
+#include "menu_managing.h"
+#include "console_cleaner.h"
 
-#include <iostream>
 #include <filesystem>
 #include <fstream>
 
@@ -18,7 +18,10 @@ int main() {
 
     browser.copy_file_from_data();
 
+    clean_console_crossplatform();
+    menu_managing::get_menu();
 //    std::cout << "Executable stuff here\n";
+
     browser.copy_from_build();
     browser.remove_from_build();
 }
